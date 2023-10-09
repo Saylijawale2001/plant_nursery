@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Sibar_nursary.iml" filepath="$PROJECT_DIR$/.idea/Sibar_nursary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../ashok dada/.idea/ashok dada.iml" filepath="$PROJECT_DIR$/../../../../../../ashok dada/.idea/ashok dada.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/coversion/.idea/coversion.iml" filepath="$USER_HOME$/PycharmProjects/coversion/.idea/coversion.iml" />
+    </modules>
+  </component>
+</project>
