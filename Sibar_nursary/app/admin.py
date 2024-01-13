@@ -5,7 +5,8 @@ from .models import (
  Customer,
  Product,
  Cart,
- OrderPlaced
+ OrderPlaced,
+ PlantSeeds
 )
 
 @admin.register(Customer)
@@ -13,6 +14,10 @@ class CustomerModelAdmin(admin.ModelAdmin):
  list_display = ['id', 'user', 'name', 'locality', 'city', 'zipcode', 'state']
 
 @admin.register(Product)
+class ProductModelAdmin(admin.ModelAdmin):
+ list_display = ['id', 'title', 'selling_price', 'discounted_price',  'description', 'brand', 'category', 'product_image']
+
+@admin.register(PlantSeeds)
 class ProductModelAdmin(admin.ModelAdmin):
  list_display = ['id', 'title', 'selling_price', 'discounted_price',  'description', 'brand', 'category', 'product_image']
 

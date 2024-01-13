@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Customer, Product, Cart, OrderPlaced
+from .models import Customer, Product, Cart, OrderPlaced,PlantSeeds
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.views import View
 from django.contrib import messages
@@ -246,26 +246,75 @@ def medicinal(request, data=None):
         medicinal_plants = Product.objects.filter(category='TW').filter(discounted_price__lt=500)
     elif data == 'above':
         medicinal_plants = Product.objects.filter(category='TW').filter(discounted_price__gt=1000)
-    return render(request, 'app/medicinal.html', {'medicinal_plants ': medicinal_plants, 'totalitem': totalitem})
+    return render(request, 'app/medicinal.html', {'medicinal_plants': medicinal_plants, 'totalitem': totalitem})
 
 
-# function for seeds
-def seeds(request, data=None):
+# for organic seeds
+def Organic_seeds(request, data=None):
     totalitem = 0
     if request.user.is_authenticated:
         totalitem = len(Cart.objects.filter(user=request.user))
     if data == None:
-        seeds_c = Product.objects.filter(category='S')
+        organicseed = PlantSeeds.objects.filter(category='OS')
     elif data == 'greeny':
-        seeds_c = Product.objects.filter(category='S').filter(brand=data)
+        organicseed = PlantSeeds.objects.filter(category='OS').filter(brand=data)
     elif data == 'monsoon':
-        seeds_c = Product.objects.filter(category='S').filter(brand=data)
+        organicseed = PlantSeeds.objects.filter(category='OS').filter(brand=data)
     elif data == 'below':
-        seeds_c = Product.objects.filter(category='S').filter(discounted_price__lt=500)
+        organicseed = PlantSeeds.objects.filter(category='OS').filter(discounted_price__lt=500)
     elif data == 'above':
-        seeds_c = Product.objects.filter(category='S').filter(discounted_price__gt=1000)
-    return render(request, 'app/seeds.html', {'seeds_c ': seeds_c, 'totalitem': totalitem})
+        organicseed = PlantSeeds.objects.filter(category='OS').filter(discounted_price__gt=1000)
+    return render(request, 'app/seeds/OrganicSeeds.html', {'organicseed': organicseed, 'totalitem': totalitem})
 
+# for VegitableSeeds
+def Vegitable_seeds(request, data=None):
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    if data == None:
+        seeds_v = PlantSeeds.objects.filter(category='VS')
+    elif data == 'greeny':
+        seeds_v = PlantSeeds.objects.filter(category='VS').filter(brand=data)
+    elif data == 'monsoon':
+        seeds_v = PlantSeeds.objects.filter(category='VS').filter(brand=data)
+    elif data == 'below':
+        seeds_v = PlantSeeds.objects.filter(category='VS').filter(discounted_price__lt=500)
+    elif data == 'above':
+        seeds_v = PlantSeeds.objects.filter(category='VS').filter(discounted_price__gt=1000)
+    return render(request, 'app/seeds/VegitableSeeds.html', {'seeds_v': seeds_v, 'totalitem': totalitem})
+
+# for herbal seeds
+def Herbs_seeds(request, data=None):
+    totalitem= 0
+    if request.user.is_authenticated:
+            totalitem = len(Cart.objects.filter(user = request.user))
+    if data == None:
+        Herbseeds = PlantSeeds.objects.filter(category='HS')
+    elif data =='greeny':
+        Herbseeds = PlantSeeds.objects.filter(category='HS').filter(brand=data)
+    elif data == 'monsoon':
+        Herbseeds = PlantSeeds.objects.filter(category = 'HS').filter(brand=data)
+    elif data == 'below':
+        Herbseeds = PlantSeeds.objects.filter(category = 'HS').filter(discounted_price__lt=500)
+    elif data =='above' :
+        Herbseeds = PlantSeeds.objects.filter(category = 'HS').filter(discounted_price__gt=1000)
+    return render(request, 'app/seeds/HerbsSeeds.html', {'Herbseeds': Herbseeds, 'totalitem' : totalitem})
+
+def Flower_seeds(request, data=None):
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    if data == None:
+        flowerseeds = PlantSeeds.objects.filter(category='FS')
+    elif data == 'greeny':
+        flowerseeds = PlantSeeds.objects.filter(category='FS').filter(brand=data)
+    elif data == 'monsoon':
+        flowerseeds = PlantSeeds.objects.filter(category='FS').filter(brand=data)
+    elif data == 'below':
+        flowerseeds = PlantSeeds.objects.filter(category='FS').filter(discounted_price__lt=500)
+    elif data == 'above':
+        flowerseeds = PlantSeeds.objects.filter(category='FS').filter(discounted_price__gt=1000)
+    return render(request, 'app/seeds/FlowerSeeds.html', {'flowerseeds': flowerseeds, 'totalitem': totalitem})
 
 class CustomerRegistrationView(View):
     def get(self, request):

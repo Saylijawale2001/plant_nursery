@@ -35,15 +35,26 @@
            </li>
            <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               Categories
+               Plants
              </a>
              <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
                  <li><a class="dropdown-item" href="{% url 'indoor' %}">Indoor Palnts</a></li>
-                 <li><a class="dropdown-item" href="{% url 'medicinal' %}">Medicinal plants</a></li>
                  <li><a class="dropdown-item" href="{% url 'outdoor' %}">Outdoor plants</a></li>
+                 <li><a class="dropdown-item" href="{% url 'medicinal' %}">Medicinal plants</a></li>
              </ul>
            </li>
-                <a class="nav-link active text-white" aria-current="page" href="{% url 'seeds' %}">Seeds</a>
+
+              <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle text-white" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Seeds
+             </a>
+             <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
+                <li><a class="dropdown-item" href="{% url 'vegitableseeds' %}">Vegitable Seeds </a></li>
+                 <li><a class="dropdown-item" href="{% url 'flowerseeds' %}">Flower Seeds</a></li>
+                 <li><a class="dropdown-item" href="{% url 'organicseeds' %}">Organic Seeds</a></li>
+                 <li><a class="dropdown-item" href="{% url 'herbsseeds' %}">Herbs Seeds</a></li>
+             </ul>
+           </li>
 
          </ul>
          <form class="d-flex">
@@ -74,6 +85,9 @@
             <li class="nav-item mx-2">
              <a href="{% url 'customerregistration' %}" class="nav-link text-white">Registration</a>
             </li>
+              <li class="nav-item mx-2">
+             <a href="{% url 'login' %}" class="nav-link text-white">About Us</a>
+            </li>
             {% endif %}
           </ul>
          </div>
@@ -86,7 +100,7 @@
 
     <!-- Start Footer -->
     <footer class="container-fluid bg-dark text-center p-2 mt-5">
-        <small class="text-white"> || Designed  By Sayli jawale|| </small>
+        <small class="text-white"> || Designed  By Sayli jawale || </small>
         <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
     </footer> <!-- End Footer -->
 

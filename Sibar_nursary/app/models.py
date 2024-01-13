@@ -56,9 +56,9 @@ CATEGORY_CHOICES = (
  ('M', 'indoor plants'),
  ('TW', 'Medicinal plants'),
  ('BW', 'Outdoor Plants'),
-('S', 'seeds'),
-('F', 'fertilizers'),
-)
+ )
+
+
 class Product(models.Model):
  title = models.CharField(max_length=100)
  selling_price = models.FloatField()
@@ -70,6 +70,26 @@ class Product(models.Model):
 
  def __str__(self):
   return str(self.id)
+
+SEEDS_CHOICES = (
+     ('VS', 'Vegitable Seeds'),
+     ('FS', 'Flower Seeds'),
+     ('OS', 'Organic Seeds'),
+     ('HS', 'Herbs seeds'),
+ )
+
+class PlantSeeds(models.Model):
+     title = models.CharField(max_length=100)
+     selling_price = models.FloatField()
+     discounted_price = models.FloatField()
+     description = models.TextField()
+     brand = models.CharField(max_length=100)
+     category = models.CharField(choices=SEEDS_CHOICES, max_length=2)
+     product_image = models.ImageField(upload_to='Seedsimg')
+
+     def __str__(self):
+         return str(self.id)
+
 
 
 class Cart(models.Model):

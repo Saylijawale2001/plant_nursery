@@ -18,6 +18,7 @@ urlpatterns = [
     path('address/', views.address, name='address'),
     path('orders/', views.orders, name='orders'),
     path('paymentdone/', views.payment_done, name='paymentdone'),
+
      #for indoor plants
     path('indoor/', views.indoor, name='indoor'),
     path('indoor/<slug:data>', views.indoor, name='indoordata'),
@@ -28,12 +29,25 @@ urlpatterns = [
     path('outdoor/<slug:data>', views.outdoor, name='outdoordata'),
 
     # for medicinal
-    path('medicinal/', views.outdoor, name='medicinal'),
-    path('medicinal/<slug:data>', views.outdoor, name='medicinaldata'),
+    path('medicinal/', views.medicinal, name='medicinal'),
+    path('medicinal/<slug:data>', views.medicinal, name='medicinaldata'),
 
-    # for seeds
-    path('seeds/', views.seeds, name='seeds'),
-    path('seeds/<slug:data>', views.seeds, name='seedsdata'),
+
+    #Vegitableseeds
+    path('VegitableSeeds/', views.Vegitable_seeds, name='vegitableseeds'),
+    path('VegitableSeeds/<slug:data>', views.Vegitable_seeds, name='vegitableseedsdata'),
+
+    #HerbsSeeds
+    path('HerbsSeeds/', views.Herbs_seeds, name='herbsseeds'),
+    path('HerbsSeeds/<slug:data>', views.Herbs_seeds, name='herbsseedsdata'),
+
+    #OrganicSeeds
+    path('OrganicSeeds/', views.Organic_seeds, name='organicseeds'),
+    path('OrganicSeeds/<slug:data>', views.Organic_seeds, name='organicseedsdata'),
+
+    # FlowerSeeds
+    path('FlowerSeeds/', views.Flower_seeds, name='flowerseeds'),
+    path('FlowerSeeds/<slug:data>', views.Flower_seeds, name='flowerseedsdata'),
 
 
     path('accounts/login/', auth_views.LoginView.as_view(template_name='app/login.html', authentication_form=LoginForm), name='login'),
